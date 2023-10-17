@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static\test.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Document</title>
+    <link rel="stylesheet" href="static\style.css">
+
+
+</head>
+
+<body>
+    <!-- HTML -->
+
+
+    <!-- 頁籤按鈕 -->
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="#" class="logo" id="tab1">
+            <i class='bx bx-code-alt' id="tab1"></i>
+            <div class="logo-name" id="tab1"><span id="tab1">108</span>GPT</div>
+        </a>
+
+        <ul class="side-menu">
+            <li class="active"><a id="tab1"><i class='bx bxs-dashboard' id="tab1"></i>首頁</a></li>
+            <li><a id="tab2"><i class='bx bx-analyse' id="tab2"></i>行事曆​</a></li>
+            <li><a id="tab3"><i class='bx bx-message-square-dots' id="tab3"></i>詢問我們​</a></li>
+            <li><a id="tab4"><i class='bx bx-group' id="tab4"></i>個人列表</a></li>
+            <li><a id="tab5"><i class='bx bx-cog' id="tab5"></i>設定</a></li>
+        </ul>
+
+
+
+        <ul class="side-menu">
+            <li>
+                <a href="#" class="logout">
+                    <i class='bx bx-log-out-circle'></i>
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Navbar -->
+        <nav>
+            <i class='bx bx-menu'></i>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" placeholder="Search...">
+                    <button class="search-btn" type="submit"><i class='bx bx-search'></i></button>
+                </div>
+            </form>
+            <input type="checkbox" id="theme-toggle" hidden>
+            <label for="theme-toggle" class="theme-toggle"></label>
+            <a href="#" class="notif">
+                <i class='bx bx-bell'></i>
+                <span class="count">12</span>
+            </a>
+            <a href="#" class="profile">
+                <img src="static\profile-1.jpg">
+            </a>
+        </nav>
+
+        <!-- End of Navbar -->
+
+        <main>
+
+            <div class="tab-content" id="content1">
+                <!-- Insights -->
+                <ul class="insights">
+                    <li>
+                        <a href="https://chat.openai.com/c/6a9bf47e-bdbb-48fd-9107-c1ad7fb46fc2" style="
+                display: flex;
+                align-items: center;
+                cursor: pointer;">
+                            <i class='bx bx-show-alt'></i>
+
+                            <span class="info" style="padding: 24px;">
+                                <h3>
+                                    學系資訊​
+                                </h3>
+                                <p>Information​</p>
+                            </span></a>
+                    </li>
+
+                    <li>
+                        <a href="https://chat.openai.com/c/6a9bf47e-bdbb-48fd-9107-c1ad7fb46fc2" style="
+                display: flex;
+                align-items: center;
+                cursor: pointer;">
+                            <i class='bx bx-calendar-check'></i>
+                            <span class="info" style="padding: 24px;">
+                                <h3>
+                                    行事曆​
+                                </h3>
+                                <p>calendar</p>
+                            </span></a>
+                    </li>
+                    <li>
+                        <a href="https://chat.openai.com/c/6a9bf47e-bdbb-48fd-9107-c1ad7fb46fc2" style="
+                display: flex;
+                align-items: center;
+                cursor: pointer;">
+                            <i class='bx bxs-file'></i>
+                            <span class="info" style="padding: 24px;">
+                                <h3>
+                                    歷程檔案
+                                </h3>
+                                <p>History file</p>
+                            </span></a>
+                    </li>
+                    <li>
+                        <a href="/activity" style="
+                display: flex;
+                align-items: center;
+                cursor: pointer;">
+                            <i class='bx bx-dollar-circle'></i>
+                            <span class="info" style="padding: 24px;">
+                                <h3>
+                                    更多活動​
+                                </h3>
+                                <p>More activities​</p>
+                            </span></a>
+                    </li>
+                </ul>
+                <div class="header">
+                    <div class="left">
+                        <h1>所有公告 ​</h1>
+                        <ul class="breadcrumb">
+                            <li><a href="#">
+                                    Analytics
+                                </a></li>
+                            /
+                            <li><a href="#" class="active">other</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <!-- End of Insights -->
+
+                <div class="bottom-data">
+                    <div class="orders">
+                        <div class="header">
+                            <i class='bx bx-receipt'></i>
+                            <h3>重要資訊​</h3>
+                            <i class='bx bx-filter'></i>
+                            <i class='bx bx-search'></i>
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>title</th>
+                                    <th>Order Date</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+
+                                        <p>title 1</p>
+                                    </td>
+                                    <td>14-08-2023</td>
+                                    <td><span class="status completed">Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+
+                                        <p>title 2</p>
+                                    </td>
+                                    <td>14-08-2023</td>
+                                    <td><span class="status pending">Pending</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+
+                                        <p>title 3</p>
+                                    </td>
+                                    <td>14-08-2023</td>
+                                    <td><span class="status process">Processing</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Reminders -->
+                    <div class="reminders">
+                        <div class="header">
+                            <i class='bx bx-note'></i>
+                            <h3>系統公告​</h3>
+                            <i class='bx bx-filter'></i>
+                            <i class='bx bx-plus'></i>
+                        </div>
+                        <ul class="task-list">
+                            <li class="completed">
+                                <div class="task-title">
+                                    <i class='bx bx-check-circle'></i>
+                                    <p>Start Our Meeting</p>
+                                </div>
+                                <i class='bx bx-dots-vertical-rounded'></i>
+                            </li>
+                            <li class="completed">
+                                <div class="task-title">
+                                    <i class='bx bx-check-circle'></i>
+                                    <p>Analyse Our Site</p>
+                                </div>
+                                <i class='bx bx-dots-vertical-rounded'></i>
+                            </li>
+                            <li class="not-completed">
+                                <div class="task-title">
+                                    <i class='bx bx-x-circle'></i>
+                                    <p>Data upload</p>
+                                </div>
+                                <i class='bx bx-dots-vertical-rounded'></i>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- End of Reminders-->
+
+                </div>
+            </div>
+
+            <div class="tab-content" id="content2" style="display: none;">
+                <div class="header">
+                    <div class="left">
+                        <h1>行事曆</h1>
+                        <ul class="breadcrumb">
+                            <li><a href="#">
+                                    Analytics
+                                </a></li>
+                            /
+                            <li><a href="#" class="active">other</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="content3" style="display: none;">
+                <h2>Tab 3 Content</h2>
+                <p>This is the content of Tab 3.</p>
+            </div>
+
+            <div class="tab-content" id="content4" style="display: none;">
+                <div class="header">
+                    <div class="left">
+                        <h1>個人列表</h1>
+
+                    </div>
+                </div>
+
+                <div class="container-xl px-4 mt-4">
+                    <!-- Account page navigation-->
+
+                    <div class="row">
+
+                        <div class="col-xl-8">
+                            <!-- Account details card-->
+                            <div class="card mb-4" style="border-radius: 20px;">
+                                <div class="person_info">
+                                    <h3 class="peson_info_title">基本資料</h3>
+                                </div>
+                                <div class="card-body text-center">
+                                    <div class="card-body">
+                                        <form>
+                                            <!-- Form Group (username)-->
+                                            <div class="mb-3">
+                                                <label class="small mb-1" for="inputUsername">姓名</label>
+                                                <input class="form-control" id="inputUsername" type="text">
+                                            </div>
+                                            <!-- Form Row-->
+                                            <div class="row gx-3 mb-3">
+                                                <!-- Form Group (first name)-->
+                                                <div class="col-md-6">
+                                                    <label class="small mb-1" for="inputFirstName">生日</label>
+                                                    <input class="form-control" id="inputFirstName" type="text">
+                                                </div>
+                                                <!-- Form Group (last name)-->
+                                                <div class="col-md-6">
+                                                    <label class="small mb-1" for="inputLastName">性別</label>
+                                                    <input class="form-control" id="inputLastName" type="text">
+                                                </div>
+                                            </div>
+                                            <!-- Form Row        -->
+                                            <div class="row gx-3 mb-3">
+                                                <!-- Form Group (organization name)-->
+                                                <div class="col-md-6">
+                                                    <label class="small mb-1" for="inputOrgName">就讀</label>
+                                                    <input class="form-control" id="inputOrgName" type="text">
+                                                </div>
+                                                <!-- Form Group (location)-->
+                                                <div class="col-md-6">
+                                                    <label class="small mb-1" for="inputLocation">學生身分別</label>
+                                                    <input class="form-control" id="inputLocation" type="text">
+                                                </div>
+                                            </div>
+                                            <!-- Form Group (email address)-->
+                                            <div class="mb-3">
+                                                <label class="small mb-1" for="inputEmailAddress">電子郵件</label>
+                                                <input class="form-control" id="inputEmailAddress" type="email">
+                                            </div>
+                                            <!-- Form Row-->
+                                            <div class="row gx-3 mb-3">
+                                                <!-- Form Group (phone number)-->
+                                                <div class="col-md-6">
+                                                    <label class="small mb-1" for="inputPhone">學生手機</label>
+                                                    <input class="form-control" id="inputPhone" type="tel">
+                                                </div>
+                                                <!-- Form Group (birthday)-->
+                                                <div class="col-md-6">
+                                                    <label class="small mb-1" for="inputBirthday">通訊地址</label>
+                                                    <input class="form-control" id="inputBirthday" type="text"
+                                                        name="birthday">
+                                                </div>
+                                            </div>
+                                            <!-- Save changes button-->
+                                            <button class="btn btn-primary" type="button">Save changes</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-4">
+                            <!-- Profile picture card-->
+                            <div class="card mb-4 mb-xl-0" style="border-radius: 20px;
+                                                                  margin:0px 0px 20px 0px;">
+                                <div class="person_info">
+                                    <h3 class="peson_info_title">頭貼</h3>
+                                </div>
+                                <div class="card-body text-center">
+                                    <!-- Profile picture image-->
+                                    <img class="img-account-profile rounded-circle mb-2" src="static\profile-1.jpg"
+                                        style="
+                                    width: 100px;
+                                    height: 100px;
+                                    object-fit: cover;
+                                    border-radius: 50%;
+                                ">
+                                    <!-- Profile picture help block-->
+                                    <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+                                    <!-- Profile picture upload button-->
+                                    <button class="btn btn-primary" type="button">Upload new image</button>
+                                </div>
+                            </div>
+
+                            <div class="card mb-4 mb-xl-0" style="border-radius: 20px;
+                                                                  margin:20px 0px 20px 0px;">
+                                <div class="person_info">
+                                    <h3 class="peson_info_title">進階資料​</h3>
+                                </div>
+                                <div class="person_info">
+                                    <p class="person_info_p" style="margin: 20px;">性向測驗</p>
+                                    <p class="person_info_p" style="margin: 20px;"">目標學系</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class=" mt-0 mb-4">
+
+                </div>
+            </div>          
+
+
+            <div class="tab-content" id="content5" style="display: none;">
+                <h2>Tab 5 Content</h2>
+                <p>This is the content of Tab 5.</p>
+            </div>
+        </main>
+
+    </div>
+
+    <script>
+        // JavaScript code
+        const tabs = document.querySelectorAll('a');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', (e) => {
+
+                const tabId = e.target.id;
+                tabContents.forEach(content => {
+                    content.style.display = 'none';
+                });
+                document.getElementById('content' + tabId.slice(-1)).style.display = 'block';
+            });
+        });
+
+
+    </script>
+    <script src="static\index.js"></script>
+
+    <p id="theme_set1">{{theme}}</p>
+
+</body>
+
+</html>
