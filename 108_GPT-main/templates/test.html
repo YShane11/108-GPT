@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Document</title>
+    <link rel="stylesheet" href="static\style.css">
+
+
+</head>
+<body>
+  <!-- HTML -->
+
+
+<!-- 頁籤按鈕 -->
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="#" class="logo">
+            <i class='bx bx-code-alt'></i>
+            <div class="logo-name"><span>108</span>GPT</div>
+        </a>
+
+        <ul class="side-menu">
+            <li class="active"><a href="#tab-1" id="tab1"><i class='bx bxs-dashboard'></i>首頁</a></li>
+            <li><a href="#tab-2" id="tab2"><i class='bx bx-analyse'></i>行事曆​</a></li>
+            <li><a href="#tab-3" id="tab3"><i class='bx bx-message-square-dots'></i>詢問我們​</a></li>
+            <li><a href="#tab-4"><i class='bx bx-group'></i>個人列表</a></li>
+            <li><a href="#tab-5"><i class='bx bx-cog'></i>設定</a></li>
+        </ul>
+ 
+
+
+        <ul class="side-menu">
+            <li>
+                <a href="#" class="logout">
+                    <i class='bx bx-log-out-circle'></i>
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+
+<!-- Main Content -->
+<div class="content">
+    <!-- Navbar -->
+    <nav>
+        <i class='bx bx-menu'></i>
+        <form action="#">
+            <div class="form-input">
+                <input type="search" placeholder="Search...">
+                <button class="search-btn" type="submit"><i class='bx bx-search'></i></button>
+            </div>
+        </form>
+        <input type="checkbox" id="theme-toggle" hidden>
+        <label for="theme-toggle" class="theme-toggle"></label>
+        <a href="#" class="notif">
+            <i class='bx bx-bell'></i>
+            <span class="count">12</span>
+        </a>
+        <a href="#" class="profile">
+            <img src="static\profile-1.jpg">
+        </a>
+    </nav>
+
+    <!-- End of Navbar -->
+
+    <main>
+
+        <div class="tab-content" id="content1">
+<!-- Insights -->
+<ul class="insights">
+    <li>
+        <i class='bx bx-show-alt'></i>
+        <span class="info">
+            <h3>
+                學系資訊​
+            </h3>
+            <p>Information​</p>
+        </span>
+    </li>
+    <li><i class='bx bx-calendar-check'></i>
+        <span class="info">
+            <h3>
+                行事曆​
+            </h3>
+            <p>calendar</p>
+        </span>
+    </li>
+    <li><i class='bx bxs-file'></i>
+        <span class="info">
+            <h3>
+                歷程檔案
+            </h3>
+            <p>History file</p>
+        </span>
+    </li>
+    <li><i class='bx bx-dollar-circle'></i>
+        <span class="info">
+            <h3>
+                更多活動​
+            </h3>
+            <p>More activities​</p>
+        </span>
+    </li>
+</ul>
+<div class="header">
+    <div class="left">
+        <h1>所有公告 ​</h1>
+        <ul class="breadcrumb">
+            <li><a href="#">
+                    Analytics
+                </a></li>
+            /
+            <li><a href="#" class="active">other</a></li>
+        </ul>
+    </div>
+</div>
+
+
+<!-- End of Insights -->
+
+<div class="bottom-data">
+    <div class="orders">
+        <div class="header">
+            <i class='bx bx-receipt'></i>
+            <h3>重要資訊​</h3>
+            <i class='bx bx-filter'></i>
+            <i class='bx bx-search'></i>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>title</th>
+                    <th>Order Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        
+                        <p>title 1</p>
+                    </td>
+                    <td>14-08-2023</td>
+                    <td><span class="status completed">Completed</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                        <p>title 2</p>
+                    </td>
+                    <td>14-08-2023</td>
+                    <td><span class="status pending">Pending</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                        <p>title 3</p>
+                    </td>
+                    <td>14-08-2023</td>
+                    <td><span class="status process">Processing</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Reminders -->
+    <div class="reminders">
+        <div class="header">
+            <i class='bx bx-note'></i>
+            <h3>系統公告 ​</h3>
+            <i class='bx bx-filter'></i>
+            <i class='bx bx-plus'></i>
+        </div>
+        <ul class="task-list">
+            <li class="completed">
+                <div class="task-title">
+                    <i class='bx bx-check-circle'></i>
+                    <p>Start Our Meeting</p>
+                </div>
+                <i class='bx bx-dots-vertical-rounded'></i>
+            </li>
+            <li class="completed">
+                <div class="task-title">
+                    <i class='bx bx-check-circle'></i>
+                    <p>Analyse Our Site</p>
+                </div>
+                <i class='bx bx-dots-vertical-rounded'></i>
+            </li>
+            <li class="not-completed">
+                <div class="task-title">
+                    <i class='bx bx-x-circle'></i>
+                    <p>Data upload</p>
+                </div>
+                <i class='bx bx-dots-vertical-rounded'></i>
+            </li>
+        </ul>
+    </div>
+
+    <!-- End of Reminders-->
+
+</div>
+        </div>
+    
+        <div class="tab-content" id="content2">
+            <h2>Tab 2 Content</h2>
+            <p>This is the content of Tab 2.</p>
+        </div>
+    
+        <div class="tab-content" id="content3">
+            <h2>Tab 3 Content</h2>
+            <p>This is the content of Tab 3.</p>
+        </div>
+    </main>
+
+</div>
+
+<script>
+    // JavaScript code
+    const tabs = document.querySelectorAll('a');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', (e) => {
+            e.preventDefault();
+            const tabId = e.target.id;
+            tabContents.forEach(content => {
+                content.style.display = 'none';
+            });
+            document.getElementById('content' + tabId.slice(-1)).style.display = 'block';
+        });
+    });
+</script>
+<script src="static\index.js"></script>
+</body>
+</html>
