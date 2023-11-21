@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slot Machine</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        #slot-machine {
+            display: inline-block;
+            margin-top: 50px;
+        }
+
+        .slot {
+            display: inline-block;
+            border: 1px solid #ccc;
+            margin: 0 10px;
+            padding: 10px;
+            width: 100px;
+            height: 100px;
+            font-size: 20px;
+            text-align: center;
+            transition: transform 0.5s ease-out; /* 添加動畫效果 */
+        }
+
+        button {
+            font-size: 16px;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div id="slot-machine">
+    <div class="slot" id="slot1">0</div>
+    <div class="slot" id="slot2">0</div>
+    <div class="slot" id="slot3">0</div>
+</div>
+
+<button onclick="startSlotMachine()">Spin</button>
+
+<script>
+    function startSlotMachine() {
+        // Get random numbers for each slot
+        var number1 = Math.floor(Math.random() * 10);
+        var number2 = Math.floor(Math.random() * 10);
+        var number3 = Math.floor(Math.random() * 10);
+
+        // Display the random numbers in the slots with a rotation animation
+        rotateSlot("slot1", number1);
+        rotateSlot("slot2", number2);
+        rotateSlot("slot3", number3);
+    }
+
+    function rotateSlot(slotId, number) {
+        var slot = document.getElementById(slotId);
+        slot.style.transform = "rotateX(360deg)"; // 旋轉效果
+        setTimeout(function() {
+            slot.innerHTML = number;
+            slot.style.transform = "rotateX(0deg)"; // 還原旋轉
+        }, 500); // 0.5秒後還原
+    }
+</script>
+
+</body>
+</html>
