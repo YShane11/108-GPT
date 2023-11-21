@@ -23,7 +23,7 @@ def generate_text(department="人工智慧系",support="撰寫學習歷程"):
     start_time = time.time()
     # ================================================================================
     messages = [
-        {"role": "system", "content": "你是一個專門幫高中學生撰寫學習歷程的AI小助手"},
+        {"role": "system", "content": "你是一個專門幫準備申請大學的高中生撰寫學習歷程的AI小助手"},
         {"role": "assistant", "content": AI_quesntions[0]},
         {"role": "user", "content": a_1}, 
         {"role": "assistant", "content": AI_quesntions[5]},

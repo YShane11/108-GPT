@@ -6,7 +6,7 @@ with open("AI.txt", "r", encoding = "utf-8") as file:
     AI_quesntions = [line.strip() for line in file.readlines()]
     file.close()
 
-def generate_text(department="人工智慧系",support="撰寫學習歷程",ans_1="因為我想要AI機器人陪我聊天"):
+def generate_text(department="人工智慧系",support="撰寫學習歷程"):
     config = dotenv_values("env.txt")
     openai.api_key = config["API_KEY"]
 
@@ -28,12 +28,12 @@ def generate_text(department="人工智慧系",support="撰寫學習歷程",ans_
     start_time = time.time()
     #======================================================================================================
     messages = [
-        {"role": "system", "content": "你是一個專門幫學生撰寫學習歷程的AI小助手"},
+        {"role": "system", "content": "你是一個專門幫準備申請大學的高中生撰寫學習歷程的AI小助手"},
         {"role": "user", "content": narration}
     ]
 
-    response = openai.ChatCompletion.create(
-        model = "gpt-4",
+    response = openai.ChatCompletion.create( 
+        model = "gpt-4-1106-preview", # https://platform.openai.com/docs/models/gpt-4-and-gpt-4-turbo
         messages = messages,
         max_tokens = 1000
     )
@@ -51,3 +51,4 @@ print(generate_text())
 # 可使用token數(考慮到未來花費)  https://openai.com/pricing  https://platform.openai.com/tokenizer
 # 資料庫方面連接多少內容
 # 題目如何設計
+# 時間問題
