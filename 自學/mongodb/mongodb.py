@@ -2,7 +2,7 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 from bson.son import SON
 
-myclient = MongoClient('localhost',27017)
+myclient = MongoClient("mongodb://localhost:27017/")
 
 
 Test = myclient.Test.Test

@@ -4,7 +4,7 @@ import gradio as gr
 
 
 def generate_text(text):
-    config = dotenv_values("env.txt")
+    config = dotenv_values("C:/Users/YShane11/OneDrive/桌面/env.txt")
 
     openai.api_key = config["API_KEY"]
 
