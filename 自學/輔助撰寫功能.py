@@ -31,7 +31,6 @@ def main(department, support):
             aimdepartment = i
             break
 
-
     config = dotenv_values("C:/Users/YShane11/OneDrive/桌面/env.txt")
     openai.api_key = config["API_KEY"]
 
