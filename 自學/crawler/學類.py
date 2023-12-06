@@ -25,7 +25,7 @@ def main(url, header):
     if not margin_2:
         courses = "資料準備中"
     else:
-        courses = margin_2.find("p",style="margin-left:20px")
+        courses = margin_2.find("p",style="margin-left:20px").text
 
 
 

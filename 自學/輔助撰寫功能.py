@@ -1,26 +1,54 @@
 import openai
 from dotenv import dotenv_values
 import time
+from pymongo import MongoClient
 
+def database():
+    myclient = MongoClient("mongodb+srv://YShane11:a44993386@school.hd1nbkk.mongodb.net/")
+    alldepartment = myclient.學系學群學類.學系
 
-support = '多元表現綜整心得'
-department = "人工智慧系"
+    department = []
+    for i in alldepartment.find():
+        department.append(i)
 
-def generate_text(department, support):
+    return department
 
+# def text, target_language='en'): # en
+#     translator = Translator()
+#     translation = translator.translate(text, dest=target_language)
+#     return translation.text
+
+def allquestions(support):
     with open(f"Question/{support}.txt", "r", encoding = "utf-8") as file:
         AI_quesntions = [line.strip() for line in file.readlines()]
+    return AI_quesntions
+
+def main(department, support):
+    AI_quesntions = allquestions(support)
+    allschooldata= database()
+    for i in allschooldata:
+        if i['學校']+i['系所'] == department:
+            aimdepartment = i
+            break
+
 
     config = dotenv_values("C:/Users/YShane11/OneDrive/桌面/env.txt")
     openai.api_key = config["API_KEY"]
 
-    messages = [{
-        "role": "system", 
-        "content": "語言:zh-Tw 目標客群:準備申請大學的高中生 工作:從學生的角度,輔助生成備審資料的的AI助手(字數大約1000字) 要求:盡量符合真實性、不回覆沒意義的話"
-        }]
+    messages = [{"role": "system","content": "語言:zh-Tw 目標客群:準備申請大學的高中生 工作:從學生的角度,輔助生成備審資料且文筆極佳的AI助手(字數大約1000字) 重點:內容須符合所提供資訊，不可憑空捏造事實 "}]
+    messages.append({"role": "assistant", "content": '目標校系'})
+    messages.append({"role": "user", "content": department})
+    messages.append({"role": "assistant", "content": '多元綜整的定義'})
+    messages.append({"role": "user", "content": AI_quesntions[0]})
+    messages.append({"role": "assistant", "content": '此校系需具備什麼多元能力'})
+    messages.append({"role": "user", "content": f'{aimdepartment["多元能力"]}'})
+    messages.append({"role": "assistant", "content": '此校系需具備什麼性格特質'})
+    messages.append({"role": "user", "content": f'{aimdepartment["性格特質"]}'})
+    messages.append({"role": "user", "content": f'整合以上問答及提供的資訊，生成{support} 注意:生成文檔需整合上述所有資訊，用合理的分段來生成'})
 
-    for i in range(len(AI_quesntions)):
-        # ans = input(f"/n{AI_quesntions[i]}/nAns{i+1}: ")
+
+    for i in range(1,len(AI_quesntions)):
+        # ans = input(f"\n{AI_quesntions[i]}\nAns{i+1}: ")
         ans = "0"
         if ans == "0":
             pass
@@ -28,25 +56,20 @@ def generate_text(department, support):
             messages.append({"role": "assistant", "content": AI_quesntions[i]},)
             messages.append({"role": "user", "content": ans})
 
-
-    narration = f'''
-        目標學系: {department}
-        =====================================
-        整合以上問答及提供的學系，生成{support}
-    '''
-    messages.append({"role": "user", "content": narration})
-
     print("===========================================================================================")
     start_time = time.time()
     response = openai.ChatCompletion.create(
         model = "gpt-4-1106-preview",
         messages = messages,
-        max_tokens = 2000,
-        temperature = 1.3
+        max_tokens = 3000,
+        temperature = 0.5
     )
     end_time = time.time() 
     print(f"程式執行時間: {end_time - start_time} 秒")
     return response['choices'][0]['message']['content']
 
-
-print(generate_text(department, support))
+if __name__ == "__main__":
+    # allsupport = ['多元表現綜整心得', '就讀動機','未來學習計畫及生活規劃','高中學習歷程反思']
+    # allschoolname = [i['學校']+i['系所'] for i in database()]
+    for i in range(10):
+        main('國立臺灣大學中國文學系','多元表現綜整心得')
