@@ -31,19 +31,17 @@ def main(department, support):
             aimdepartment = i
             break
 
-    config = dotenv_values("C:/Users/YShane11/OneDrive/桌面/env.txt")
+    config = dotenv_values("C:/Users/YShane11/env.txt")
     openai.api_key = config["API_KEY"]
 
     messages = [{"role": "system","content": "語言:zh-Tw 目標客群:準備申請大學的高中生 工作:從學生的角度,輔助生成備審資料且文筆極佳的AI助手(字數大約1000字) 重點:內容須符合所提供資訊，不可憑空捏造事實 "}]
-    messages.append({"role": "assistant", "content": '目標校系'})
-    messages.append({"role": "user", "content": department})
-    messages.append({"role": "assistant", "content": '多元綜整的定義'})
-    messages.append({"role": "user", "content": AI_quesntions[0]})
-    messages.append({"role": "assistant", "content": '此校系需具備什麼多元能力'})
-    messages.append({"role": "user", "content": f'{aimdepartment["多元能力"]}'})
-    messages.append({"role": "assistant", "content": '此校系需具備什麼性格特質'})
-    messages.append({"role": "user", "content": f'{aimdepartment["性格特質"]}'})
-    messages.append({"role": "user", "content": f'整合以上問答及提供的資訊，生成{support} 注意:生成文檔需整合上述所有資訊，用合理的分段來生成'})
+    messages.append({"role": "system","content": f"目標校系:{department}"})
+    messages.append({"role": "system","content": f"多元綜整的定義:{AI_quesntions[0]}"})
+    messages.append({"role": "system","content": f"此校系所需多元能力:{aimdepartment['多元能力']}"})
+    messages.append({"role": "system","content": f"此校系所適合的性格特質:{aimdepartment['性格特質']}"})
+    
+    messages.append({"role": "user", "content": f'整合以上問答及提供的資訊，分成一到四段來生成生成{support}'})
+    messages.append({"role": "user", "content": '輸出:{ 只需顯示內文 }'})
 
 
     for i in range(1,len(AI_quesntions)):
@@ -61,7 +59,7 @@ def main(department, support):
         model = "gpt-4-1106-preview",
         messages = messages,
         max_tokens = 3000,
-        temperature = 0.5
+        temperature = 0.9
     )
     end_time = time.time() 
     print(f"程式執行時間: {end_time - start_time} 秒")
@@ -70,5 +68,4 @@ def main(department, support):
 if __name__ == "__main__":
     # allsupport = ['多元表現綜整心得', '就讀動機','未來學習計畫及生活規劃','高中學習歷程反思']
     # allschoolname = [i['學校']+i['系所'] for i in database()]
-    for i in range(10):
-        main('國立臺灣大學中國文學系','多元表現綜整心得')
+    print(main('國立臺灣大學中國文學系','多元表現綜整心得'))
