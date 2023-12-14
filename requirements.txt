@@ -1,7 +1,10 @@
 aiofiles==23.2.1
+aiohttp==3.9.1
+aiosignal==1.3.1
 altair==5.2.0
 annotated-types==0.6.0
 anyio==3.7.1
+async-timeout==4.0.3
 attrs==23.1.0
 blinker==1.7.0
 certifi==2023.11.17
@@ -18,6 +21,7 @@ ffmpy==0.3.1
 filelock==3.13.1
 Flask==3.0.0
 fonttools==4.46.0
+frozenlist==1.4.0
 fsspec==2023.12.2
 gradio==4.8.0
 gradio_client==0.7.1
@@ -36,8 +40,9 @@ markdown-it-py==3.0.0
 MarkupSafe==2.1.3
 matplotlib==3.8.2
 mdurl==0.1.2
+multidict==6.0.4
 numpy==1.26.2
-openai==1.3.8
+openai==0.28.0
 orjson==3.9.10
 packaging==23.2
 pandas==2.1.4
@@ -72,3 +77,4 @@ urllib3==2.1.0
 uvicorn==0.24.0.post1
 websockets==11.0.3
 Werkzeug==3.0.1
+yarl==1.9.4
