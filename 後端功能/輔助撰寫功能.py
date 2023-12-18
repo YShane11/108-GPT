@@ -2,6 +2,7 @@ import openai
 from dotenv import dotenv_values
 import time
 from pymongo import MongoClient
+import csv
 
 def database():
     myclient = MongoClient("mongodb+srv://YShane11:a44993386@school.hd1nbkk.mongodb.net/")
@@ -10,7 +11,6 @@ def database():
     department = []
     for i in alldepartment.find():
         department.append(i)
-    print(123)
     return department
 
 def allquestions(support):
@@ -21,7 +21,6 @@ def allquestions(support):
 def main(department, support):
     AI_quesntions = allquestions(support)
     allschooldata= database()
-    print(123)
     for i in allschooldata:
         if i['學校']+i['系所'] == department:
             aimdepartment = i
@@ -77,13 +76,21 @@ def main(department, support):
         model = "gpt-4-1106-preview",
         messages = messages,
         max_tokens = 3000,
+        n = 10,
         temperature = 0.8
     )
     end_time = time.time() 
     print(f"程式執行時間: {end_time - start_time} 秒")
-    return response['choices'][0]['message']['content']
+    return [i['message']['content'] for i in response['choices']]
 
 if __name__ == "__main__":
     # allsupport = ['多元表現綜整心得', '就讀動機','未來學習計畫及生活規劃','高中學習歷程反思']
     # allschoolname = [i['學校']+i['系所'] for i in database()]
     print(main('國立臺灣大學中國文學系','多元表現綜整心得'))
+
+    # with open('result.csv', 'a', newline='',encoding='big5') as csvfile:   
+    #     csv_writer = csv.DictWriter(csvfile, fieldnames = ["result"])
+    #     # 寫入標題（字典的鍵）
+    #     csv_writer.writeheader()
+    #     for i in main('國立臺灣大學中國文學系','多元表現綜整心得'):
+    #         csv_writer.writerow({"result":i})
