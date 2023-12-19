@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-  <title>Home</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文字美化!!!</title>
 </head>
 <body>
-  <script src="test.js"></script>
+    <form id="myForm" action="/execute" method="post">
+        <label for="input">請輸入要執行的內容：</label>
+        <input type="text" id="input" name="input" value="{{ input }}">
+        <button type="submit">執行</button><br><br>
+        <label for="output">執行結果：</label><br>
+        <textarea id="output" name="output" rows="10" cols="50">{{ output }}</textarea><br>
+    </form>
 </body>
 </html>
