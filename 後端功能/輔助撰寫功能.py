@@ -29,7 +29,7 @@ def main(department, support):
     config = dotenv_values("C:/Users/YShane11/env.txt")
     openai.api_key = config["API_KEY"]
 
-    messages = [{"role": "system","content": "語言:zh-Tw 目標客群:準備申請大學的高中生 工作:從學生的角度,輔助生成備審資料且文筆極佳的AI助手(字數大約1000字) 重點:內容須符合所提供資訊，不可憑空捏造事實 "}]
+    messages = [{"role": "system","content": "語言:zh-Tw 目標客群:準備申請大學的高中生 工作:從學生的角度,輔助生成備審資料且文筆極佳的AI助手(字數大約1000字) 重點:內容須符合所提供資訊，不可憑空捏造事實、文筆需接近高中生所寫 "}]
     messages.append({"role": "system","content": f"目標校系:{department}"})
     if support == '多元表現綜整心得':
         messages.append({"role": "system","content": "多元綜整的定義:將高中參加的自主學習、社團活動、擔任幹部經驗、服務學習經驗、競賽表現、非修課紀錄的成果作品、檢定證照、特殊優良表現證明進行彙整，並說明從這些經驗中，所學到內容和成長，盡可能展現自己的 { 此校系所需多元能力、此校系所適合的性格特質 } 的人格特質與具備的能力。"})
@@ -76,12 +76,11 @@ def main(department, support):
         model = "gpt-4-1106-preview",
         messages = messages,
         max_tokens = 3000,
-        n = 10,
         temperature = 0.8
     )
     end_time = time.time() 
     print(f"程式執行時間: {end_time - start_time} 秒")
-    return [i['message']['content'] for i in response['choices']]
+    return response['choices'][0]['message']['content']
 
 if __name__ == "__main__":
     # allsupport = ['多元表現綜整心得', '就讀動機','未來學習計畫及生活規劃','高中學習歷程反思']
