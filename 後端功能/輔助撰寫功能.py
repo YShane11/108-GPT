@@ -76,7 +76,7 @@ def main(department, support):
         model = "gpt-4-1106-preview",
         messages = messages,
         max_tokens = 3000,
-        temperature = 0.8
+        temperature = 0.6
     )
     end_time = time.time() 
     print(f"程式執行時間: {end_time - start_time} 秒")
