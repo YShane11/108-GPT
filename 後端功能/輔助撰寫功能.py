@@ -53,11 +53,8 @@ def main(department, support):
         messages.append({"role": "system","content": "高中學習歷程反思定義:請將最優異的經歷進行學習歷程反思、遇到過挑戰或困難的情況和克服方式、和大學科系相關經驗等進行彙整，說明高中學習歷程中的反思，可以提及高中各方面的成長及反思、自我認識與成長、學習困境及所做努力、自我的態度及行為轉變等，並從描述中展現學生具備 { 此校系所需多元能力、此校系所適合的性格特質 } 的人格特質與具備的能力。"})
         messages.append({"role": "system","content": f"此校系所需多元能力:{aimdepartment['多元能力']}"})
         messages.append({"role": "system","content": f"此校系所適合的性格特質:{aimdepartment['性格特質']}"})
-
-    messages.append({"role": "system","content": f"學生的性格特質:很有自信"})
     
     messages.append({"role": "user", "content": f'整合以上問答及提供的資訊，分成一到四段來生成{support}'})
-    messages.append({"role": "user", "content": '如提供學生的性格特質與校系適合的性格特質有雷同，可就此特質適當地多加描述'})
     messages.append({"role": "user", "content": '輸出:{ 只需顯示內文 }'})
 
 
