@@ -70,7 +70,7 @@ def main(department, support):
     print("===========================================================================================")
     start_time = time.time()
     response = openai.ChatCompletion.create(
-        model = "gpt-4-1106-preview",
+        model = "gpt-4-0125-preview",
         messages = messages,
         max_tokens = 3000,
         temperature = 0.6

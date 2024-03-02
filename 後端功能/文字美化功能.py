@@ -31,7 +31,7 @@ def main(department, text):
                 {"role": "user", "content": text}]
 
     response = openai.ChatCompletion.create(
-        model = "gpt-4",
+        model = "gpt-4-0125-preview",
         messages = messages,
         max_tokens = 4096,
         temperature = 0.9
