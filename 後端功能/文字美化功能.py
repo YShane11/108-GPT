@@ -28,23 +28,19 @@ def main(department, text):
                 {"role": "system","content": "注意:是美化不是回答、不要過度誇飾"},                
                 {"role": "system","content": "範例輸入:我好帥 輸出:我的魅力無疑是無人能擋"},     
                 {"role": "system","content": f"{department}所適合的性格特質:{aimdepartment['性格特質']}"},
-                {"role": "system","content": f"學生的性格特質:很有自信"},
-                {"role": "user", "content": f'如提供學生的性格特質與{department}適合的性格特質有雷同，可就此特質適當地多加描述'},        
+                {"role": "user", "content": f'如內容與「{department}適合的性格特質」有雷同的特質，可就此特質適當地多加描述'},        
+                {"role": "user", "content": '不要過度誇示'},        
                 {"role": "user", "content": text}]
-    
+
     response = openai.ChatCompletion.create(
         model = "gpt-4",
         messages = messages,
         max_tokens = 4096,
-        n = 5,
-        temperature = 1.2
+        temperature = 1.0
     )
 
-    return [i['message']['content'] for i in response['choices']]
+    return response['choices'][0]['message']['content'] 
 
 
 if __name__ == "__main__":
     print(main("國立臺灣大學中國文學系","我很聰明"))
-    # demo = gr.Interface(fn=main, inputs="text", outputs="text",title="文字美化功能",description="輸入文字",allow_flagging="never",)
-
-    # demo.launch()
