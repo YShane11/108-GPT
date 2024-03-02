@@ -24,10 +24,8 @@ def main(department, text):
             aimdepartment = i
             break
 
-    messages = [{"role": "system","content": "你是一個AI文字美化機器人,只需根據使用者輸入美化文字再輸出"},               
-                {"role": "system","content": "注意:是美化不是回答、不要過度誇飾"},                
-                {"role": "system","content": "範例輸入:我好帥 輸出:我的魅力無疑是無人能擋"},     
-                {"role": "system","content": f"{department}所適合的性格特質:{aimdepartment['性格特質']}"},
+    messages = [{"role": "system","content": "你是一個AI文字美化機器人,只需根據使用者輸入美化文字再輸出"},                                
+                {"role": "user","content": f"{department}所適合的性格特質:{aimdepartment['性格特質']}"},
                 {"role": "user", "content": f'如內容與「{department}適合的性格特質」有雷同的特質，可就此特質適當地多加描述'},        
                 {"role": "user", "content": '不要過度誇示'},        
                 {"role": "user", "content": text}]
@@ -36,7 +34,7 @@ def main(department, text):
         model = "gpt-4",
         messages = messages,
         max_tokens = 4096,
-        temperature = 1.0
+        temperature = 0.9
     )
 
     return response['choices'][0]['message']['content'] 
