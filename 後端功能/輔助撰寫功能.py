@@ -29,7 +29,7 @@ def main(department, support):
     config = dotenv_values("C:/Users/YShane11/env.txt")
     openai.api_key = config["API_KEY"]
 
-    messages = [{"role": "system","content": "目標客群:準備申請大學的高中生 工作:從學生的角度,輔助生成備審資料且文筆極佳的AI助手"}]
+    messages = [{"role": "system","content": "目標客群:準備申請大學的高中生 工作:從學生的角度，輔助生成備審資料且文筆極佳的AI助手"}]
     messages.append({"role": "system","content": f"目標校系:{department}"})
 
     if support == '多元表現綜整心得':
@@ -38,7 +38,7 @@ def main(department, support):
         messages.append({"role": "system","content": '''
                         多元表現綜整心得的定義：
                         - 目的：展示學生的個人多樣性和全面發展。
-                        - 內容：j經歷過的自主學習、參與社團、擔任幹部、服務學習、競賽成果、非課程學習成果、證書、特殊表現等。
+                        - 內容：經歷過的自主學習、參與社團、擔任幹部、服務學習、競賽成果、非課程學習成果、證書、特殊表現等。
                         - 要求：說明這些經驗如何促進個人成長，並展現學生符合特定學系要求的多元能力和適合性格特質。
                          '''})
     
@@ -85,8 +85,14 @@ def main(department, support):
             messages.append({"role": "assistant", "content": AI_quesntions[i]},)
             messages.append({"role": "user", "content": ans})
 
-    messages.append({"role": "user", "content": f'整合以上問答，分成一到四段來生成{support}'})
-    messages.append({"role": "user", "content": '注意:內容須先根據問答充分了解學生，再去根據學生資料生成、文筆需接近高中生所寫'})
+    messages.append({"role": "user", "content": f'''
+                        目的:整合以上問答，分成一到四段來生成{support}
+
+                        注意:
+                        1.內容須先根據問答充分了解學生，再去根據學生資料生成、
+                        2.文筆需接近高中生所寫，不要過度誇示
+                        3.不要提及未做過的東西
+                     '''})
     messages.append({"role": "user", "content": '語言:zh-Tw'})
     messages.append({"role": "user", "content": '輸出:{ 只需顯示內文 }'})
 
@@ -98,14 +104,17 @@ def main(department, support):
         model = "gpt-4-0125-preview",
         messages = messages,
         max_tokens = 3000,
-        temperature = 0.9
+        temperature = 0.8,
+        n=3
     )
     end_time = time.time() 
     print(f"程式執行時間: {end_time - start_time} 秒")
-    return response['choices'][0]['message']['content']
+    # return response['choices'][0]['message']['content']
+    return [i['message']['content'] for i in response['choices']]
 
 if __name__ == "__main__":
     # allsupport = ['多元表現綜整心得', '就讀動機','未來學習計畫及生活規劃','高中學習歷程反思']
     # allschoolname = [i['學校']+i['系所'] for i in database()]
-    for i in range(10):
-        print(main('國立臺灣大學中國文學系','多元表現綜整心得'))
+    for i in main('國立臺灣大學中國文學系','多元表現綜整心得'):
+        print(i)
+        print("===========================================================================================")
