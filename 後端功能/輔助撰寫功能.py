@@ -77,8 +77,8 @@ def main(department, support):
                          '''})
     
     for i in range(0,len(AI_quesntions)):
-        # ans = input(f"\n{AI_quesntions[i]}\nAns{i+1}: ")
         ans = "0"
+        ans = input(f"\n{AI_quesntions[i]}\nAns{i+1}: ")
         if ans == "0":
             messages.append({"role": "assistant", "content": AI_quesntions[i]},)
             messages.append({"role": "user", "content": '無'})
@@ -107,12 +107,12 @@ def main(department, support):
         messages = messages,
         max_tokens = 3000,
         temperature = 0.8,
-        n=3
+        n=5,
     )
     end_time = time.time() 
     print(f"程式執行時間: {end_time - start_time} 秒")
     # return response['choices'][0]['message']['content']
-    return [i['message']['content'] for i in response['choices']]
+    return [i['message']['content']  for i in response['choices']]
 
 if __name__ == "__main__":
     # allsupport = ['多元表現綜整心得', '就讀動機','未來學習計畫及生活規劃','高中學習歷程反思']
